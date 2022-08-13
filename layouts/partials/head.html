@@ -35,79 +35,14 @@
       href="{{ .NextInSection.Permalink }}"
     />
   {{ end }}
+
   <meta name="description" content="{{ .Description | default .Site.Params.description | safeHTML }}"/>
+
+  {{- template "_internal/opengraph.html" . -}}
+  {{- template "_internal/twitter_cards.html" . -}}
+
   <meta name="referrer" content="no-referrer-when-downgrade" />
-  <meta property="fb:app_id" content="{{ .Site.Params.fb_appid }}" />
-  <meta
-    property="og:site_name"
-    content="{{ if .Page.Title }}{{ .Page.Title | safeHTML }} | {{
-      .Site.Author.name
-    }}{{ else }}{{ .Site.Title | safeHTML }}{{ end }}"
-  />
-  <meta
-    property="og:title"
-    content="{{ if .Page.Title }}{{ .Page.Title | safeHTML }} | {{
-      .Site.Author.name
-    }}{{ else }}{{ .Site.Title }}{{ end }}"
-  />
-  {{ if .Site.Author.facebook }}
-    <meta property="og:type" content="article" />
-    <meta
-      property="article:publisher"
-      content="https://web.facebook.com/{{ .Site.Author.facebook }}"
-    />
-  {{ else }}
-    <meta property="og:type" content="website" />
-  {{ end }}
-  <meta
-    property="og:url"
-    content="{{ .Permalink }}"
-  />
-  <meta
-    property="og:description"
-    content="{{-
-      .Description
-        | default .Site.Params.description
-        | safeHTML
-    -}}"
-  />
-  {{ if and (not .IsHome) (isset .Site.Params "cover") }}
-    <meta property="og:image" content="{{ .Site.Params "cover" | absURL }}" />
-  {{ else }}
-    <meta property="og:image" content="{{ .Site.Params.favicon | absURL }}" />
-  {{ end }}
-  <meta property="og:image:width" content="640" />
-  <meta property="og:image:height" content="640" />
-  <meta name="twitter:card" content="summary" />
-  <meta
-    name="twitter:title"
-    content="{{ if .Page.Title }}{{ .Page.Title | safeHTML }} | {{
-      .Site.Author.twitter
-    }}{{ else }}{{ .Site.Title | safeHTML }}{{ end }}"
-  />
-  <meta
-    name="twitter:url"
-    content="{{
-      .Permalink 
-    }}"
-  />
-  <meta name="twitter:site" content="@{{ .Site.Author.twitter }}" />
-  <meta name="twitter:creator" content="@{{ .Site.Author.twitter }}" />
-  <meta
-    name="twitter:description"
-    content="{{-
-      .Description
-        | default .Site.Params.description
-        | safeHTML
-    -}}"
-  />
-  {{ if and (not .IsHome) (isset .Site.Params "cover") }}
-    <meta property="twitter:image" content="{{ .Site.Params "cover" | absURL }}" />
-  {{ else }}
-    <meta property="twitter:image" content="{{ .Site.Params.favicon | absURL }}" />
-  {{ end }}
-  
-  {{ with .OutputFormats.Get "RSS" -}}
+     {{ with .OutputFormats.Get "RSS" -}}
     <link rel="alternate" type="application/rss+xml" href="{{ .RelPermalink }}" title="{{ $.Site.Title }}">
     <link rel="feed" type="application/rss+xml" href="{{ .RelPermalink }}" title="{{ $.Site.Title }}">
   {{ end -}}
