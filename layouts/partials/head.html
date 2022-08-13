@@ -23,16 +23,16 @@
     rel="canonical"
     href="{{ .Permalink }}"
   />
-  {{ if .Prev }}
+  {{ if .PrevInSection }}
     <link
       rel="prev"
-      href="{{ .Prev.Permalink }}"
+      href="{{ .PrevInSection.Permalink }}"
     />
   {{ end }}
-  {{ if .Next}}
+  {{ if .NextInSection }}
     <link
       rel="next"
-      href="{{ .Next.Permalink }}"
+      href="{{ .NextInSection.Permalink }}"
     />
   {{ end }}
   <meta
@@ -120,8 +120,9 @@
     <meta property="twitter:image" content="{{ .Params.favicon | absURL }}" />
   {{ end }}
   
-  {{ with .OutputFormats.Get "rss" -}}
-    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{ with .OutputFormats.Get "RSS" -}}
+    <link rel="alternate" type="application/rss+xml" href="{{ .RelPermalink }}" title="{{ .Site.Title }}">
+    <link rel="feed" type="application/rss+xml" href="{{ .RelPermalink }}" title="{{ .Site.Title }}">
   {{ end -}}
   <link
     rel="apple-touch-icon"
