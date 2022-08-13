@@ -9,9 +9,9 @@
   <meta name="apple-mobile-web-app-title" content="{{ .Site.Title }}" />
   <title>
     {{ if .Page.Title }}
-      {{ .Page.Title | plainify }} - {{ .Site.Title }}
+      {{ .Page.Title | safeHTML }} - {{ .Site.Title }}
     {{ else }}
-      {{ .Site.Title | plainify }}
+      {{ .Site.Title | safeHTML }}
     {{ end }}
   </title>
   <link
@@ -40,7 +40,7 @@
     content="{{-
       .Description
         | default .Params.description
-        | plainify
+        | safeHTML
         | trim '\n'
         | truncate 200
     -}}"
@@ -49,21 +49,21 @@
   <meta property="fb:app_id" content="{{ .Params.fb_appid }}" />
   <meta
     property="og:site_name"
-    content="{{ if .Page.Title }}{{ .Page.Title | plainify }} | {{
+    content="{{ if .Page.Title }}{{ .Page.Title | safeHTML }} | {{
       .Site.Author.name
-    }}{{ else }}{{ .Site.Title | plainify }}{{ end }}"
+    }}{{ else }}{{ .Site.Title | safeHTML }}{{ end }}"
   />
   <meta
     property="og:title"
-    content="{{ if .Page.Title }}{{ .Page.Title | plainify }} | {{
+    content="{{ if .Page.Title }}{{ .Page.Title | safeHTML }} | {{
       .Site.Author
-    }}{{ else }}{{ .Site.Title | plainify }}{{ end }}"
+    }}{{ else }}{{ .Site.Title | safeHTML }}{{ end }}"
   />
   {{ if .Site.Author.facebook }}
     <meta property="og:type" content="article" />
     <meta
       property="article:publisher"
-      content="https://web.facebook.com/{{ Site.Author.facebook }}"
+      content="https://web.facebook.com/{{ .Site.Author.facebook }}"
     />
   {{ else }}
     <meta property="og:type" content="website" />
@@ -77,7 +77,7 @@
     content="{{-
       .Description
         | default .Params.description
-        | plainify
+        | safeHTML
         | trim '\n'
         | truncate 200
     -}}"
@@ -92,9 +92,9 @@
   <meta name="twitter:card" content="summary" />
   <meta
     name="twitter:title"
-    content="{{ if .Page.Title }}{{ .Page.Title | plainify }} | {{
-      Site.Author.twitter
-    }}{{ else }}{{ .Site.Title | plainify }}{{ end }}"
+    content="{{ if .Page.Title }}{{ .Page.Title | safeHTML }} | {{
+      .Site.Author.twitter
+    }}{{ else }}{{ .Site.Title | safeHTML }}{{ end }}"
   />
   <meta
     name="twitter:url"
@@ -102,14 +102,14 @@
       .Permalink 
     }}"
   />
-  <meta name="twitter:site" content="@{{ Site.Author.twitter }}" />
-  <meta name="twitter:creator" content="@{{ Site.Author.twitter }}" />
+  <meta name="twitter:site" content="@{{ .Site.Author.twitter }}" />
+  <meta name="twitter:creator" content="@{{ .Site.Author.twitter }}" />
   <meta
     name="twitter:description"
     content="{{-
       .Description
-        | default .Site.description
-        | plainify
+        | default .Site.Params.description
+        | safeHTML
         | trim '\n'
         | truncate 200
     -}}"
@@ -121,8 +121,8 @@
   {{ end }}
   
   {{ with .OutputFormats.Get "RSS" -}}
-    <link rel="alternate" type="application/rss+xml" href="{{ .RelPermalink }}" title="{{ .Site.Title }}">
-    <link rel="feed" type="application/rss+xml" href="{{ .RelPermalink }}" title="{{ .Site.Title }}">
+    <link rel="alternate" type="application/rss+xml" href="{{ .RelPermalink }}" title="{{ $.Site.Title }}">
+    <link rel="feed" type="application/rss+xml" href="{{ .RelPermalink }}" title="{{ $.Site.Title }}">
   {{ end -}}
   <link
     rel="apple-touch-icon"
@@ -152,10 +152,10 @@
   <meta name="msapplication-TileColor" content="#da532c" />
   <meta name="theme-color" content="#2c2c2c" />
 
-  {{ $style := resources.Get "css/style.scss" | toCSS | postCSS | minify | fingerprint }}
+  {{ $style := resources.Get "sass/main.scss" | toCSS | minify | fingerprint }}
   <link
     rel="stylesheet"
     href="{{ $style.Permalink }}"
-    integrity="$style.Data.Integrity" 
+    integrity="{{ $style.Data.Integrity }}" 
   >
 </head>
