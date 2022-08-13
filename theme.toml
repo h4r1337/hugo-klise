@@ -4,7 +4,7 @@
 name = "Hugo Klise"
 license = "MIT"
 licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE"
-description = "description"
+description = "The theme for hugo based on the existing klisé theme for jekyll"
 homepage = "http://example.com/"
 tags = []
 features = []

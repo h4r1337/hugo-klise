@@ -1,4 +1,4 @@
-<head prefix="og: http://ogp.me/ns#">
+<head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -42,7 +42,7 @@
   {{- template "_internal/twitter_cards.html" . -}}
 
   <meta name="referrer" content="no-referrer-when-downgrade" />
-     {{ with .OutputFormats.Get "RSS" -}}
+  {{ with .OutputFormats.Get "RSS" -}}
     <link rel="alternate" type="application/rss+xml" href="{{ .RelPermalink }}" title="{{ $.Site.Title }}">
     <link rel="feed" type="application/rss+xml" href="{{ .RelPermalink }}" title="{{ $.Site.Title }}">
   {{ end -}}
