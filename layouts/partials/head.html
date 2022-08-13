@@ -35,16 +35,9 @@
       href="{{ .NextInSection.Permalink }}"
     />
   {{ end }}
-  <meta
-    name="description"
-    content="{{-
-      .Description
-        | default .Params.description
-        | safeHTML
-    -}}"
-  />
+  <meta name="description" content="{{ .Description | default .Site.Params.description | safeHTML }}"/>
   <meta name="referrer" content="no-referrer-when-downgrade" />
-  <meta property="fb:app_id" content="{{ .Params.fb_appid }}" />
+  <meta property="fb:app_id" content="{{ .Site.Params.fb_appid }}" />
   <meta
     property="og:site_name"
     content="{{ if .Page.Title }}{{ .Page.Title | safeHTML }} | {{
@@ -74,14 +67,14 @@
     property="og:description"
     content="{{-
       .Description
-        | default .Params.description
+        | default .Site.Params.description
         | safeHTML
     -}}"
   />
-  {{ if and (not .IsHome) (isset .Params "cover") }}
-    <meta property="og:image" content="{{ .Params "cover" | absURL }}" />
+  {{ if and (not .IsHome) (isset .Site.Params "cover") }}
+    <meta property="og:image" content="{{ .Site.Params "cover" | absURL }}" />
   {{ else }}
-    <meta property="og:image" content="{{ .Params.favicon | absURL }}" />
+    <meta property="og:image" content="{{ .Site.Params.favicon | absURL }}" />
   {{ end }}
   <meta property="og:image:width" content="640" />
   <meta property="og:image:height" content="640" />
@@ -108,10 +101,10 @@
         | safeHTML
     -}}"
   />
-  {{ if and (not .IsHome) (isset .Params "cover") }}
-    <meta property="twitter:image" content="{{ .Params "cover" | absURL }}" />
+  {{ if and (not .IsHome) (isset .Site.Params "cover") }}
+    <meta property="twitter:image" content="{{ .Site.Params "cover" | absURL }}" />
   {{ else }}
-    <meta property="twitter:image" content="{{ .Params.favicon | absURL }}" />
+    <meta property="twitter:image" content="{{ .Site.Params.favicon | absURL }}" />
   {{ end }}
   
   {{ with .OutputFormats.Get "RSS" -}}
