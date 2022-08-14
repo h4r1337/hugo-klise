@@ -22,9 +22,10 @@
         setTimeout(() => body.classList.remove("notransition"), 75);
       </script>
 
+      {{- partial "navbar.html" . -}}
       <div class="wrapper">
         <main aria-label="Content">
-          {{- block "content" . }}{{- end }}
+          {{- block "content" . }}{{ end -}}
         </main>
       </div>
       {{- partial "footer.html" . -}}
