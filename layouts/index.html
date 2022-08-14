@@ -1,2 +1,13 @@
 {{- define "main" -}}
+  <h3 class="posts-item-note" area-label="Recent Posts">Recent Posts</h3>
+  {{- $posts := .Site.Params.home.posts -}}
+  {{- $paginator := .Paginate (where .Site.RegularPages "Type" "posts") -}}
+  {{- range $paginator.Pages -}}
+    <article class="post-item">
+      <span class="post-item-date">{{ .Date.Format "Jan 2, 2006" }}</span>
+      <h4 class="post-item-title">
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </h4>
+    </article>
+  {{- end -}}
 {{- end -}}
