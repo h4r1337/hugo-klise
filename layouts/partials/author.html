@@ -1,0 +1,9 @@
+<div class="author">
+  <img
+    class="author-avatar"
+    src="{{ .Site.Params.Author.avatar }}"
+    alt="{{ .Site.Params.Author.username }}"
+  />
+  <h2 class="author-name">{{ .Site.Params.Author.name }}</h2>
+  <p class="author-bio">{{ .Site.Params.Author.bio | safeHTML }}</p>
+</div>

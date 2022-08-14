@@ -24,6 +24,7 @@
 
       {{- partial "navbar.html" . -}}
       <div class="wrapper">
+        {{- partial "author.html" . -}}
         <main aria-label="Content">
           {{- block "content" . }}{{ end -}}
         </main>
