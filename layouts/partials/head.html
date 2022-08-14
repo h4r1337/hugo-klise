@@ -77,7 +77,7 @@
   {{ $style := resources.Get "sass/main.scss" | toCSS | minify | fingerprint }}
   <link
     rel="stylesheet"
-    href="{{ $style.Permalink }}"
+    href="{{ $style.RelPermalink }}"
     integrity="{{ $style.Data.Integrity }}" 
   >
 </head>
