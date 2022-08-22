@@ -1,4 +1,5 @@
 {{- define "main" -}}
+<main aria-label="Content">
   <h3 class="posts-item-note" area-label="Recent Posts">Recent Posts</h3>
   {{- $posts := .Site.Params.home.posts -}}
   {{- $paginator := .Paginate (where .Site.RegularPages "Type" "posts") -}}
@@ -10,4 +11,5 @@
       </h4>
     </article>
   {{- end -}}
+</main>
 {{- end -}}

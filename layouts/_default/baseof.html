@@ -25,11 +25,9 @@
       {{- partial "navbar.html" . -}}
       <div class="wrapper">
         {{ if .IsHome }}
-        {{- partial "author.html" . -}}
+          {{- partial "author.html" . -}}
         {{ end }}
-        <main aria-label="Content">
-          {{- block "main" . }}{{ end -}}
-        </main>
+        {{- block "main" . }}{{ end -}}
       </div>
       {{- partial "footer.html" . -}}
     </body>
