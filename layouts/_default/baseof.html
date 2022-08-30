@@ -23,12 +23,7 @@
       </script>
 
       {{- partial "navbar.html" . -}}
-      <div class="wrapper">
-        {{ if .IsHome }}
-          {{- partial "author.html" . -}}
-        {{ end }}
-        {{- block "main" . }}{{ end -}}
-      </div>
+      {{- block "main" . }}{{ end -}}
       {{- partial "footer.html" . -}}
     </body>
 </html>

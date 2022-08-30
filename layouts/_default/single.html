@@ -1,12 +1,14 @@
 {{- define "main" -}}
-<header class="header">
-  <h1 class="header-title center" itemprop="headline">{{ .Title |  }}</h1>
-</header>
-<main class="page-content" aria-label="Content">
-  {{- with .Content -}}
-      <div>
-        {{ . | replaceRE "(<h[1-9] id=\"([^\"]+)\".+)(</h[1-9]+>)" `${1}<a href="#${2}" class="hanchor" aria-label="Anchor">&#8983;</a> ${3}` | safeHTML }}
-      </div>
-    {{- end -}}
-</main>
+<div class="wrapper">
+  <header class="header">
+    <h1 class="header-title center" itemprop="headline">{{ .Title |  }}</h1>
+  </header>
+  <main class="page-content" aria-label="Content">
+    {{- with .Content -}}
+        <div>
+          {{ . | replaceRE "(<h[1-9] id=\"([^\"]+)\".+)(</h[1-9]+>)" `${1}<a href="#${2}" class="hanchor" aria-label="Anchor">&#8983;</a> ${3}` | safeHTML }}
+        </div>
+      {{- end -}}
+  </main>
+</div>
 {{- end -}}
