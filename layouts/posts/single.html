@@ -1,0 +1,42 @@
+{{- define "main" -}}
+<div class="wrapper post">
+  <main class="page-content" aria-label="Content">
+    <article itemscope itemtype="https://schema.org/BlogPosting">
+      <header class="header">
+        {{ if .Params.tags }}
+          <div class="tags">
+            <span itemprop="keywords">
+              {{ range .Params.tags }}
+              <a href="{{ (urlize (printf "tags/%s/" .)) | absURL | anchorize | lower}}" class="tag">{{ . | upper}}</a>
+              {{ end }}
+            </span>
+          </div>
+        {{ end }}
+        <h1 class="header-title" itemprop="headline">{{ .Params.Title | htmlEscape }}</h1>
+        {{ if .Params.date }}
+          <div class="post-meta">
+            <time datetime="{{ .Date }}" itemprop="datePublished">
+              {{ .Date.Format "2006-01-02" }}
+            </time>
+            <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+              <span itemprop="name">{{ .Site.Params.Author.name }}</span>
+            </span>
+            <time hidden datetime="{{ .Lastmod }}" itemprop="dateModified"></time>
+            <span hidden itemprop="publisher" itemtype="Person">{{ .Site.Author.name }}</span>
+            <span hidden itemprop="mainEntityOfPage">{{ .Plain }}</span>
+          </div>
+        {{ end }}
+      </header>
+
+      <div class="page-content" itemprop="articleBody">
+        {{- with .Content -}}
+        {{ . | replaceRE "(<h[1-9] id=\"([^\"]+)\".+)(</h[1-9]+>)" `${1}<a href="#${2}" class="hanchor" aria-label="Anchor">&#8983;</a> ${3}` | safeHTML }}
+        {{- end -}}
+      </div>
+    </article>
+  </main>
+  {{ if .Lastmod }}
+    <small class="post-updated-at">updated at {{ .Lastmod.Format "2006-01-02" }}</small>
+  {{ end }}
+</div>  
+{{- end -}}
