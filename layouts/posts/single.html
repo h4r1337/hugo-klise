@@ -9,7 +9,7 @@
               {{ with .Params.tags }}
                 {{ range $i, $e := .}}
                   {{ if $i }}, {{ end }}
-                  <a href="{{ (urlize (printf "tags/%s/" .)) | absURL | anchorize | lower}}" class="tag">{{ . | upper}}</a>
+                  <a href="{{ (urlize (printf "tags/%s/" .)) }}" class="tag">{{ . | upper}}</a>
                 {{ end }}
               {{ end }}
             </span>
