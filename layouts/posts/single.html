@@ -6,8 +6,11 @@
         {{ if .Params.tags }}
           <div class="tags">
             <span itemprop="keywords">
-              {{ range .Params.tags }}
-              <a href="{{ (urlize (printf "tags/%s/" .)) | absURL | anchorize | lower}}" class="tag">{{ . | upper}}</a>
+              {{ with .Params.tags }}
+                {{ range $i, $e := .}}
+                  {{ if $i }}, {{ end }}
+                  <a href="{{ (urlize (printf "tags/%s/" .)) | absURL | anchorize | lower}}" class="tag">{{ . | upper}}</a>
+                {{ end }}
               {{ end }}
             </span>
           </div>
