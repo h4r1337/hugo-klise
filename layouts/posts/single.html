@@ -15,7 +15,7 @@
             </span>
           </div>
         {{ end }}
-        <h1 class="header-title" itemprop="headline">{{ .Params.Title | htmlEscape }}</h1>
+        <h1 class="header-title" itemprop="headline">{{ .Title | htmlEscape }}</h1>
         {{ if .Params.date }}
           <div class="post-meta">
             <time datetime="{{ .Date }}" itemprop="datePublished">
