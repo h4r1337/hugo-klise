@@ -1,7 +1,7 @@
 {{- define "main" -}}
 <div class="wrapper">
   <header class="header">
-    <h1 class="header-title center" itemprop="headline">{{ .Title | hemlEscape }}</h1>
+    <h1 class="header-title center" itemprop="headline">{{ .Title | htmlEscape }}</h1>
   </header>
   <main class="page-content" aria-label="Content">
     {{- with .Content -}}
