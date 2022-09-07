@@ -1,0 +1,20 @@
+{{- define "main" -}}
+<div class="wrapper">
+  <header class="header">
+    <h1 class="header-title center" itemprop="headline">{{ .Title | htmlEscape}}</h1>
+  </header>
+  <main class="page-content" aria-label="Content">
+    <div class="archive-tags">
+      <a href="#" class="tag-item">all</a>
+      {{ $type := .Type }}
+      {{ range $key, $value := .Data.Terms.Alphabetical }}
+        {{ $name := .Name }}
+        {{ $count := .Count }}
+        {{ with $.Site.GetPage (printf "/%s/%s" $type $name) }}
+          <a href="{{ .Permalink }}" class="tag-item">{{ .Name }} ({{ $count }})</a>
+        {{ end }}
+      {{ end }}
+    </div>
+  </main>
+</div>
+{{- end -}}
