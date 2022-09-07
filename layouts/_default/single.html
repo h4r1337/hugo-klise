@@ -5,9 +5,7 @@
   </header>
   <main class="page-content" aria-label="Content">
     {{- with .Content -}}
-        <div>
           {{ . | replaceRE "(<h[1-4] id=\"([^\"]+)\">)(.*)(</h[1-4]+>)" `${1}<a href="#${2}" class="anchor-head" aria-label="Anchor"></a>${3}${4}` | safeHTML }}
-        </div>
       {{- end -}}
   </main>
 </div>
