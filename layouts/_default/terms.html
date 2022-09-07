@@ -7,12 +7,10 @@
     <div class="archive-tags">
       <a href="#" class="tag-item">all</a>
       {{ $type := .Type }}
-      {{ range $key, $value := .Data.Terms.Alphabetical }}
-        {{ $name := .Name }}
-        {{ $count := .Count }}
-        {{ with $.Site.GetPage (printf "/%s/%s" $type $name) }}
-          <a href="{{ .Permalink }}" class="tag-item">{{ .Name }} ({{ $count }})</a>
-        {{ end }}
+      {{ $taxonomies := .Data.Plural }}
+      {{ $terms := .Data.Terms.ByCount}}
+      {{ range $.Site.Taxonomies.tags.ByCount }}
+      <a href="{{ .Page.Permalink }}" class="tag-item">{{ .Page.Title }} <sup>{{ .Count }}</sup></a>
       {{ end }}
     </div>
   </main>
