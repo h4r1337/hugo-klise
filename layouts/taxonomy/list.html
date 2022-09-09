@@ -1,0 +1,25 @@
+{{ define "main" }}
+<div class="wrapper">
+  <header class="header">
+    <h1 class="header-title center" itemprop="headline">{{ .Title | htmlEscape }}</h1>
+  </header>
+  <main class="page-content" aria-label="Content">
+    {{ if .Pages }}
+      {{ $pages := .Pages.GroupByDate "2006" }}
+      {{ $pages = .Paginate $pages "20" }}
+      {{ $pages = $.Paginate $pages }}
+      {{ range $pages.PageGroups }}
+        <h2 id="{{ .Key }}">{{ .Key | upper }}</h2>
+        {{ range .Pages }}
+          <article class="post-item" id="results-container">
+            <span class="post-item-date">{{ .Date.Format "2006-01-02" }}</span>
+            <h3 class="post-item-title">
+              <a href="{{ .Permalink }}">{{ .Title | htmlEscape}}</a>
+            </h3>
+          </article>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  </main>
+</div>
+{{ end }}
