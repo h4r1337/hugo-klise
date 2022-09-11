@@ -8,9 +8,10 @@
       <a href="#" class="tag-item">all</a>
       {{ $type := .Type }}
       {{ $taxonomies := .Data.Plural }}
-      {{ $terms := .Data.Terms.ByCount}}
-      {{ range $.Site.Taxonomies.tags.ByCount }}
-      <a href="{{ .Page.Permalink }}" class="tag-item">{{ .Page.Title }} <sup>{{ .Count }}</sup></a>
+      {{ if eq $taxonomies "tags" }}
+        {{ range $.Site.Taxonomies.tags.ByCount }}
+          <a href="{{ .Page.Permalink }}" class="tag-item">{{ .Page.Title }} <sup>{{ .Count }}</sup></a>
+        {{ end }}
       {{ end }}
     </div>
   </main>

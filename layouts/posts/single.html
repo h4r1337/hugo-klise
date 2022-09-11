@@ -6,6 +6,7 @@
         {{ if .Params.tags }}
           <div class="tags">
             <span itemprop="keywords">
+<!-- https://stackoverflow.com/questions/59565101/hugo-list-tags-with-link-and-comma-separated -->
               {{ with .Params.tags }}
                 {{ range $i, $e := .}}
                   {{ if $i }}, {{ end }}
@@ -25,7 +26,7 @@
               <span itemprop="name">{{ .Site.Params.Author.name }}</span>
             </span>
             <time hidden datetime="{{ .Lastmod }}" itemprop="dateModified"></time>
-            <span hidden itemprop="publisher" itemtype="Person">{{ .Site.Author.name }}</span>
+            <span hidden itemprop="publisher" itemtype="Person">{{ .Site.Params.Author.name }}</span>
             <span hidden itemprop="mainEntityOfPage">{{ .Description }}</span>
           </div>
         {{ end }}
@@ -38,6 +39,7 @@
       </div>
     </article>
   </main>
+  <!-- @TODO: Add GitInfo support  -->
   {{ if .Lastmod }}
     <small class="post-updated-at">updated at {{ .Lastmod.Format "2006-01-02" }}</small>
   {{ end }}
