@@ -3,7 +3,7 @@
   {{- partial "author.html" . -}}
   <main aria-label="Content">
     <h3 class="posts-item-note" area-label="Recent Posts">Recent Posts</h3>
-    {{- $pages := .Paginate (where .Site.RegularPages "Type" "posts") -}}
+    {{- $pages := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections ) -}}
     {{- range $pages.Pages -}}
       <article class="post-item">
         <span class="post-item-date">{{ .Date.Format "Jan 2, 2006" }}</span>
