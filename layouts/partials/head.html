@@ -37,6 +37,7 @@
   {{ end }}
 
   <meta name="description" content="{{ .Description | default .Site.Params.description | safeHTML }}"/>
+  <meta name="keywords" content="{{ with .Params.Keywords }}{{ delimit . ", " }}{{ else }}{{ $.Site.Params.Keywords }}{{ end }}" />
 
   {{- template "_internal/opengraph.html" . -}}
   {{- template "_internal/twitter_cards.html" . -}}
