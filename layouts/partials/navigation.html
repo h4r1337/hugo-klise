@@ -1,17 +1,17 @@
 <nav class="post-nav">
-  {{ if .PrevInSecrtion }}
+  {{ if .PrevInSection }}
     <a
       class="post-nav-item post-nav-prev"
-      href="{{ .PrevInSection.Permalink | relURL }}"
+      href="{{ .PrevInSection.Permalink }}"
     >
       <div class="nav-arrow">Previous</div>
-      <span class="post-title">{{ .PrevInSection.Title }}</span>}
+      <span class="post-title">{{ .PrevInSection.Title }}</span>
     </a>
   {{ end }}
   {{ if .NextInSection }}
     <a
       class="post-nav-item post-nav-next"
-      href="{{ .NextInSection.Permalink | relURL }}"
+      href="{{ .NextInSection.Permalink }}"
     >
       <div class="nav-arrow">Next</div>
       <span class="post-title">{{ .NextInSection.Title }}</span>
