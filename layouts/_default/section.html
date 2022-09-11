@@ -15,8 +15,12 @@
     
     {{ if .Pages }}
       {{ $pages := .Pages.GroupByDate "2006" }}
-      {{ $pages = .Paginate $pages "20" }}
-      {{ $pages = .Paginate $pages}}
+      {{- with .Site.Params.section.paginate | default .Site.Params.paginate -}}
+        {{- $pages = $.Paginate $pages . -}}
+      {{- else -}}
+        {{- $pages = .Paginate $pages -}}
+      {{- end -}}
+      {{ $pages = .Paginate $pages }}
       {{ range $pages.PageGroups }}
         <h2 id="{{ .Key }}">{{ .Key | upper }}</h2>
         {{ range .Pages }}
