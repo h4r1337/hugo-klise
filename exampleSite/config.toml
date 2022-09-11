@@ -1,0 +1,84 @@
+baseURL = "https://example.com"
+title = "Hugo Themes"
+author = "Steve Francia"
+copyright = "Copyright © 2008–2019, Steve Francia and the Hugo Authors; all rights reserved."
+languageCode = "en"
+DefaultContentLanguage = "en"
+enableInlineShortcodes = true
+# prevent build failures when using Hugo's Instagram shortcode due to deprecated Instagram API.
+# See https://github.com/gohugoio/hugo/issues/7228#issuecomment-714490456
+ignoreErrors = ["error-remote-getjson"]
+
+# set your theme to "hugo-klise"
+theme = "../.."
+
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "posts"
+    url = "/posts/"
+    weight = 2
+  [[menu.main]]
+    identifier = "about"
+    name = "about"
+    url = "/about/"
+    weight = 3
+  [[menu.main]]
+    identifier = "home"
+    name = "home"
+    url = "/"
+    weight = 1
+
+[taxonomies]
+category = "categories"
+tag = "tags"
+series = "series"
+
+[params]
+  # default mode ("light", "dark")
+  mode = "dark"
+  
+  [params.author]
+  name = "Hugo Klisé"
+  bio = "The minimalist Hugo theme, light and dark mode support, for running a personal site and blog, meet Klisé theme at <a href='https://github.com/h4r1337/hugo-klise' target='_blank' rel='noopener;'>@github</a>"
+  username = "username"
+  github = "github_username"
+  twitter = "twitter_username"
+  facebook = "facebook_username"
+  email = "your-email@email.com"
+  avatar = "/img/avatar.jpg"
+
+  [params.section]
+    paginate = 20
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[privacy]
+
+  [privacy.vimeo]
+    disabled = false
+    simple = true
+
+  [privacy.twitter]
+    disabled = false
+    enableDNT = true
+    simple = true
+
+  [privacy.instagram]
+    disabled = false
+    simple = true
+
+  [privacy.youtube]
+    disabled = false
+    privacyEnhanced = true
+
+[services]
+
+  [services.instagram]
+    disableInlineCSS = true
+
+  [services.twitter]
+    disableInlineCSS = true
