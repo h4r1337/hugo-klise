@@ -4,18 +4,22 @@
 name = "Hugo Klise"
 license = "MIT"
 licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE"
-description = "The theme for hugo based on the existing klisé theme for jekyll"
-homepage = "http://example.com/"
-tags = []
-features = []
-min_version = "0.41.0"
+description = "A clean and simple theme for hugo based on klisé theme for jekyll"
+homepage = "http://github.com/h4r1337/hugo-klise"
+tags = ["blog", "minimal", "dark", "light", "responsive"]
+features = ["Light and Dark mode", "Customizable using scss", "Responsive", "Mobile first design", "SEO Optimized", "Pagination"]
 
 [author]
-  name = "me"
-  homepage = "home"
+  name = "h4r1337"
+  homepage = "https://h4r1337.github.io/"
 
 # If porting an existing theme
 [original]
   name = "jekyll-klise"
-  homepage = "klise.vercel.app/"
+  homepage = "https://klise.vercel.app/"
   repo = "https://github.com/piharpi/jekyll-klise"
+
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = "0.102.0"
