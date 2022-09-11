@@ -26,7 +26,7 @@
             </span>
             <time hidden datetime="{{ .Lastmod }}" itemprop="dateModified"></time>
             <span hidden itemprop="publisher" itemtype="Person">{{ .Site.Author.name }}</span>
-            <span hidden itemprop="mainEntityOfPage">{{ .Plain }}</span>
+            <span hidden itemprop="mainEntityOfPage">{{ .Description }}</span>
           </div>
         {{ end }}
       </header>
