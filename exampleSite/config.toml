@@ -39,7 +39,7 @@ series = "series"
   mode = "dark"
 
   # type of sections to add in the recent posts section
-  mainSections = ["blog", "docs", "posts", "post"]
+  mainSections = ["blog", "docs", "posts", "post", "homepage"]
   
   [params.author]
   name = "Hugo Klisé"
