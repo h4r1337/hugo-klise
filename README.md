@@ -46,7 +46,7 @@ $ git submodule add -f https://github.com/h4r1337/hugo-klise themes/hugo-klise
 - [ ] GitInfo support
 - [ ] Custom code highlight
 - [ ] Copy code
-- [ ] Automatic post summary view (using more tag)
+- [x] Automatic post summary view (using more tag)
 
 > **NOTE** 
 > Still under construction!

@@ -25,10 +25,18 @@
         <h2 id="{{ .Key }}">{{ .Key | upper }}</h2>
         {{ range .Pages }}
           <article class="post-item">
-            <h3 class="post-item-title">
+            <h3 class="post-item-title" style="font-weight: 600;">
               <a href="{{ .Permalink }}">{{ .Title | htmlEscape}}</a>
             </h3>
           </article>
+          {{ if $.Site.Params.showSummary }}
+          <article class="post-summary">
+            <span class="summary" style="color: #767f87;">
+              {{ .Summary | markdownify }}
+            </span>
+            <a href=".RelPermalink">Read More...</a>
+          </article>
+          {{ end }}
         {{ end }}
       {{ end }}
     {{ end }}

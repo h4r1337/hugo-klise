@@ -40,6 +40,9 @@ series = "series"
 
   # type of sections to add in the recent posts section
   mainSections = ["blog", "docs", "posts", "post", "homepage"]
+
+  # show summary section of each page
+  showSummary = false
   
   [params.author]
   name = "Hugo Klisé"
