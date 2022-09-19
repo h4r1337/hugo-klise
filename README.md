@@ -15,6 +15,16 @@ This will be a hugo theme inspired by the original jekyll theme -- [Klisé](http
 - Mobile First Design
 - SEO Optimized
 - Pagination
+- [Custom shortcodes](#custom-shortcodes)
+
+### Custom shortcodes 
+
+- `figure`(props required: `src`, props optional: `alt`, `caption`)
+  - eg:
+  ```markdown
+  {{< figure src="/path/image.png" alt="Image" caption="This is an image" >}}
+  ```
+
 
 ## Installation
 
