@@ -22,7 +22,12 @@ This will be a hugo theme inspired by the original jekyll theme -- [Klisé](http
 - `figure`(props required: `src`, props optional: `alt`, `caption`)
   - eg:
   ```markdown
-  {{< figure src="/path/image.png" alt="Image" caption="This is an image" >}}
+  {{< figure src="/path/image.png" alt="image" caption="This is an image" >}}
+  ```
+- `image`(props required: `src`, props optional: `alt`)
+  - eg:
+  ```markdown
+  {{< image src="/path/image.png" alt="image" >}}
   ```
 
 
