@@ -17,7 +17,7 @@ This will be a hugo theme inspired by the original jekyll theme -- [Klisé](http
 - Pagination
 - [Custom shortcodes](#custom-shortcodes)
 
-### Custom shortcodes 
+### Built-in shortcodes 
 
 - `figure`(props required: `src`, props optional: `alt`, `caption`)
   - eg:
@@ -61,7 +61,6 @@ $ git submodule add -f https://github.com/h4r1337/hugo-klise themes/hugo-klise
 ### Major
 
 - [ ] Add posts search feature
-- [ ] Add Shortcodes
 - [ ] Table of Content
 - [ ] Comments
 - [ ] User customization options
@@ -70,6 +69,7 @@ $ git submodule add -f https://github.com/h4r1337/hugo-klise themes/hugo-klise
   - More configuration options via config.toml
 - [ ] Google Analytics
 - [ ] Submit to hugo themes
+- [x] Add Shortcodes
 
 ### Minor
 
