@@ -58,6 +58,12 @@ series = "series"
     paginate = 20
 
 [markup]
+  [markup.highlight]
+    # Add this option if you want to use the custom gruvbox theme
+    # for code highlighting. If you don't use this option
+    # the code highlight theme will be the defaut monokai theme from hugo.
+    noClasses = false
+
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true

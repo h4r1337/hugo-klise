@@ -30,6 +30,21 @@ This will be a hugo theme inspired by the original jekyll theme -- [Klisé](http
   {{< image src="/path/image.png" alt="image" >}}
   ```
 
+### Code highlighting
+
+- Add this option to your `config.toml` file for enabling the custom gruvbox theme for code highlighting.
+```toml
+[markup]
+  [markup.highlight]
+    noClasses = false
+```
+- The default one is monokai.
+- You can also use other themes provided by hugo by using this:
+```toml
+[markup]
+  [markup.highlight]
+    style = "gruvbox" # check here for more styles: https://xyproto.github.io/splash/docs/all.html
+```
 
 ## Installation
 
@@ -59,9 +74,9 @@ $ git submodule add -f https://github.com/h4r1337/hugo-klise themes/hugo-klise
 ### Minor
 
 - [ ] GitInfo support
-- [ ] Custom code highlight
 - [ ] Copy code
 - [x] Automatic post summary view (using more tag)
+- [x] Custom code highlight
 
 > **NOTE** 
 > Still under construction!
