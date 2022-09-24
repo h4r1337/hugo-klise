@@ -3,7 +3,10 @@
   <a class="footer_item" href="/index.xml">rss</a>
   <span class="footer_item">&copy; {{ now.Year }}</span>
   <small class="footer_copyright">
-    <!-- Hugo-Klisé Theme: https://github.com/h4r1337/hugo-klise -->
+  <!-- Hugo-Klisé Theme: https://github.com/h4r1337/hugo-klise -->
+  {{ if $.Site.Copyright }}
+    <span>{{ $.Site.Copyright | safeHTML}}</span>
+  {{ else }}
     <a
       href="https://github.com/h4r1337/hugo-klise"
       target="_blank"
@@ -14,6 +17,9 @@
     <a href="https://gohugo.io" target="_blank" rel="noreferrer noopener"
       >Hugo</a
     >
+  {{ end }}
+  <br>
+  <span>Made by <a href="https://github.com/h4r1337" target="_blank" rel="noreferrer noopener">h4r1337</a></span>
   </small>
 </footer>
 <script src="/js/main.js" defer="defer"></script>
