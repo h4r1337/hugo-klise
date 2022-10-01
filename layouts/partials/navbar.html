@@ -165,7 +165,9 @@
         {{ if .Site.Menus }}
           {{- range .Site.Menus.main -}} 
             <a class="menu-link{{ if $.IsMenuCurrent `main` . | or ($.HasMenuCurrent `main` .) | or (eq $url .URL) }} active{{ end }}" href="{{ .URL }}"{{ with .Name }} title="{{ . }}"{{ end }}{{ if (urls.Parse .URL).Host }} rel="noopener noreffer" target="_blank"{{ end }}>
+              {{ .Pre | safeHTML }}
               {{ .Name }}
+              {{ .Post | safeHTML }}
             </a>
           {{- end -}}
         {{- else -}}

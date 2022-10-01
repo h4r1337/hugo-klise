@@ -18,16 +18,26 @@ theme = "../.."
     name = "posts"
     url = "/posts/"
     weight = 2
+    pre = ""
+    post = ""
   [[menu.main]]
     identifier = "about"
     name = "about"
     url = "/about/"
     weight = 3
+    pre = ""
+    post = ""
   [[menu.main]]
     identifier = "home"
     name = "home"
     url = "/"
     weight = 1
+    # you can add extra information before the name (HTML format is supported), such as icons
+    # fontawesome icons are supported 
+    pre = ""
+    # you can add extra information after the name (HTML format is supported), such as icons
+    # fontawesome icons are supported 
+    post = ""
 
 [taxonomies]
 category = "categories"
