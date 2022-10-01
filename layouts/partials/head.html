@@ -75,10 +75,17 @@
   <meta name="msapplication-TileColor" content="#da532c" />
   <meta name="theme-color" content="#2c2c2c" />
 
-  {{ $style := resources.Get "sass/main.scss" | toCSS | minify | fingerprint }}
+  {{- $style := resources.Get "sass/main.scss" | toCSS | minify | fingerprint -}}
+  {{- /* Font Awesome */ -}}
+  {{- $fw := resources.Get "lib/fontawesome-free/all.min.css" | fingerprint -}}
   <link
     rel="stylesheet"
     href="{{ $style.RelPermalink }}"
     integrity="{{ $style.Data.Integrity }}" 
+  >
+  <link 
+    rel="stylesheet"
+    href="{{ $fw.RelPermalink}}"
+    integrity="{{ $fw.Data.Integrity }}"
   >
 </head>
