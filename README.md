@@ -16,6 +16,7 @@ This will be a hugo theme inspired by the original jekyll theme -- [Klisé](http
 - SEO Optimized
 - Pagination
 - [Custom shortcodes](#custom-shortcodes)
+- FontAwesome icon support
 
 ### Built-in shortcodes 
 
@@ -69,6 +70,7 @@ $ git submodule add -f https://github.com/h4r1337/hugo-klise themes/hugo-klise
   - More configuration options via config.toml
 - [ ] Google Analytics
 - [ ] Submit to hugo themes
+- [x] Add FontAwesome supoort
 - [x] Add Shortcodes
 
 ### Minor
