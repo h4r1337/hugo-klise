@@ -52,7 +52,10 @@ series = "series"
   mainSections = ["blog", "docs", "posts", "post", "homepage"]
 
   # show summary section of each page
-  showSummary = false
+  # options: "none", "description", "summary"
+  # "description" shows content from the the .Description of frontmatter
+  # "summary" shows .Summary of the page
+  showSummary = "none"
   
   [params.author]
   name = "Hugo Klisé"

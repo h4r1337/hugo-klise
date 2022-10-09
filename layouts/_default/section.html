@@ -29,13 +29,18 @@
               <a href="{{ .Permalink }}">{{ .Title | htmlEscape}}</a>
             </h3>
           </article>
-          {{ if $.Site.Params.showSummary }}
-          <article class="post-summary">
-            <span class="summary" style="color: #767f87;">
-              {{ .Summary | markdownify }}
-            </span>
-            <a href=".RelPermalink">Read More...</a>
-          </article>
+          {{ $summary := $.Site.Params.showSummary }}
+          {{ if ne $summary "none" }}
+            <article class="post-summary">
+              <span class="summary" style="color: #b3bbc1;">
+                {{ if eq $summary "description" }}
+                  {{ .Description | markdownify }}
+                {{ else }}
+                  {{ .Summary | markdownify }}
+                {{ end }}
+              </span>
+              <a href="{{ .Permalink }}">Read More...</a>
+            </article>
           {{ end }}
         {{ end }}
       {{ end }}
