@@ -16,12 +16,12 @@
   </title>
   <link
     rel="alternate"
-    href="{{ .Permalink }}"
+    href="{{ .Permalink | absURL }}"
     hreflang="{{ .Site.Language.Lang }}"
   />
   <link
     rel="canonical"
-    href="{{ .Permalink }}"
+    href="{{ .Permalink | absURL }}"
   />
   {{ if .PrevInSection }}
     <link
