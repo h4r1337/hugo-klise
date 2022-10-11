@@ -1,4 +1,5 @@
 baseURL = "https://h4r1337.github.io/hugo-klise/"
+canonifyURLs = true
 title = "Hugo Themes"
 author = "h4r1337"
 copyright = "Copyright © 2022; all rights reserved."
