@@ -19,33 +19,24 @@ defaults:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
-    env:
-      HUGO_VERSION: 0.104.3
+    runs-on: ubuntu-22.04
     steps:
-      - name: Git checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
-          submodules: true
-          fetch-depth: 0
+          submodules: false  # Fetch Hugo themes (true OR recursive)
 
       - name: Setup Hugo
-        run: |
-          mkdir ~/hugo
-          cd ~/hugo
-          wget -O hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
-          && sudo dpkg -i hugo.deb
-      
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.104.3'
+          extended: true
+
       - name: Build
-        env:
-          HUGO_ENVIRONMENT: production
-          HUGO_ENV: production
-        run: |
-          cd ./exampleSite
-          hugo --minify
+        run: hugo --minify
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.TOKEN }}
           publish_dir: ./public
