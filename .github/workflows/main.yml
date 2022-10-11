@@ -49,5 +49,3 @@ jobs:
         with:
           github_token: ${{ secrets.TOKEN }}
           publish_dir: ./public
-          user_name: 'h4r1337'
-          user_email: '72344536+h4r1337@users.noreply.github.com'
