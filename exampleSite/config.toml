@@ -11,6 +11,7 @@ ignoreErrors = ["error-remote-getjson"]
 
 # set your theme to "hugo-klise"
 theme = "../.."
+publishDir = "../docs"
 
 [menu]
   [[menu.main]]
