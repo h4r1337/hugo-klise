@@ -13,6 +13,9 @@ ignoreErrors = ["error-remote-getjson"]
 theme = "../.."
 publishDir = "../docs"
 
+[permalinks]
+'/' = '/hugo-klise/'
+
 [menu]
   [[menu.main]]
     identifier = "posts"
