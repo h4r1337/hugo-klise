@@ -1,4 +1,4 @@
-baseURL = "https://h4r1337.github.io/hugo-klise/"
+baseURL = "/"
 canonifyURLs = true
 title = "Hugo Themes"
 author = "h4r1337"
