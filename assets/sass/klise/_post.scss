@@ -4,6 +4,7 @@
     padding-left: $spacing-half;
     padding-right: $spacing-half;
   }
+  background: $black;
 }
 
 // Post title
@@ -16,8 +17,10 @@
     letter-spacing: 0.5px;
 
     .tag {
-      font-weight: $bold-weight;
+      font-weight: $normal-weight;
       font-size: $small-font-size - 2;
+      padding: .1rem .5rem;
+      background: $dark-light;
 
       &:hover {
         text-decoration: none;
@@ -30,6 +33,7 @@
     line-height: 1.2;
     margin-top: 10px;
     margin-bottom: 20px;
+    color: $dark-white;
 
     &.center {
       text-align: center;

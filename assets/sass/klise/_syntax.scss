@@ -22,27 +22,27 @@ code {
 
 // Codeblock Theme
 pre.highlight, pre {
-  margin: 0 -27px;
+  margin: 0;
   @include media-query($on-mobile) {
     margin: 0 calc(51% - 51vw);
     padding-left: 20px;
   }
   border: 1px solid rgba(128,128,128,0.1);
-  background-color: #1a1b21;
-  border-radius: 2px;
+  background-color: $dark-code;
+  border-radius: 5px;
   padding: 10px;
   display: block;
   overflow-x: auto;
 
-  > code {
-    width: 100%;
-    max-width: 50rem;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.5;
-    display: block;
-    border: 0;
-  }
+}
+pre code {
+  width: 100%;
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+  display: block;
+  border: 0;
 }
 
 .highlight table td {
@@ -94,12 +94,12 @@ pre.highlight, pre {
 
 .highlight .gi {
   color: #b8bb26;
-  background-color: #282828;
+  background-color: $dark-code;
 }
 
 .highlight .gd {
   color: #fb4934;
-  background-color: #282828;
+  background-color: $dark-code;
 }
 
 .highlight .gh {

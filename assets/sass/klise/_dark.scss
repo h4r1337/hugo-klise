@@ -9,7 +9,7 @@ body[data-theme="dark"] {
   h4,
   h5,
   h6 {
-    color: $dark-white;
+    color: $dark-text-green;
   }
 
   // Table
@@ -29,12 +29,12 @@ body[data-theme="dark"] {
   // Post
   .page-content {
     a {
-      color: $dark-text-link-blue;
+      color: $dark-text-link-orange;
 
       &:hover,
       &:active,
       &:focus {
-        color: $dark-text-link-blue-active;
+        color: $dark-text-link-orange-active;
       }
     }
 

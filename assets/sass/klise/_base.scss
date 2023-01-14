@@ -29,7 +29,6 @@ h5,
 h6,
 p,
 blockquote,
-pre,
 hr,
 dl,
 dd,
@@ -84,11 +83,24 @@ b {
   color: $black;
 }
 
+:not(pre) > code {
+    width: 100%;
+    max-width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+    display: inline;
+    border: 0;
+    border-radius: 5px;
+    background-color: $dark-code;
+    padding: 0.01em 0.4em;
+}
+
 // horizontal rule
 hr {
   border-bottom: 0;
   border-style: solid;
-  border-color: $light;
+  border-color: $dark-light;
 }
 
 // kbd tag
@@ -106,6 +118,7 @@ kbd {
   font-weight: $bold-weight;
   padding: 0.01em 0.4em;
   text-shadow: 0 1px 0 $white;
+  background: $dark-code;
 }
 
 // Image
@@ -274,8 +287,8 @@ blockquote {
 
 // Wrapper
 .wrapper {
-  max-width: -webkit-calc(#{$narrow-size} - (#{$spacing-full} * 2));
-  max-width: calc(#{$narrow-size} - (#{$spacing-full} * 2));
+  max-width: -webkit-calc(#{$wide-size} - (#{$spacing-full} * 2));
+  max-width: calc(#{$wide-size} - (#{$spacing-full} * 2));
   position: relative;
   margin-right: auto;
   margin-left: auto;
@@ -284,8 +297,8 @@ blockquote {
   @extend %clearfix;
 
   @include media-query($on-mobile) {
-    max-width: -webkit-calc(#{$narrow-size} - (#{$spacing-full}));
-    max-width: calc(#{$narrow-size} - (#{$spacing-full}));
+    max-width: -webkit-calc(#{$wide-size} - (#{$spacing-full}));
+    max-width: calc(#{$wide-size} - (#{$spacing-full}));
     padding-right: $spacing-full - 10;
     padding-left: $spacing-full - 10;
 

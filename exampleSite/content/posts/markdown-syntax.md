@@ -71,18 +71,15 @@ Tables aren't part of the core Markdown spec, but Hugo supports supports them ou
 
 #### Code block with backticks
 
-```html
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Example HTML5 Document</title>
-</head>
-<body>
-  <p>Test</p>
-</body>
-</html>
+```sh
+# With knockd
+sudo apt-get install knockd
+knock 10.10.85.194 1111 2222 3333 4444
+
+# With nc
+for P in 1111 2222 3333 4444; do nc -vz 10.10.85.194 $P ;done
 ```
+`for P in 1111 2222 3333 4444; do nc -vz 10.10.85.194 $P ;done`
 
 #### Code block indented with four spaces
 
