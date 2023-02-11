@@ -5,7 +5,7 @@ draft = true
 author = ""
 authorTwitter = ""
 description = ""
-cover = ""
+images = []
 tags = []
 keywords = []
 +++
