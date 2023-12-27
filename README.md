@@ -19,6 +19,7 @@ This is a hugo theme inspired by the original jekyll theme -- [Klisé](https://g
 - Pagination
 - [Custom shortcodes](#custom-shortcodes)
 - FontAwesome icon support
+- Google Analytics
 
 ### Built-in shortcodes
 
@@ -55,6 +56,16 @@ This is a hugo theme inspired by the original jekyll theme -- [Klisé](https://g
     style = "gruvbox" # check here for more styles: https://xyproto.github.io/splash/docs/all.html
 ```
 
+### Google Analytics
+
+- To enable google analytics to your website add the below snippet to your `config.toml` file:
+
+```toml
+[services]
+  [services.googleAnalytics]
+    id = 'G-XXXXXXXXX' # Add your google analytics id here
+```
+
 ## Installation
 
 - Install theme
@@ -76,8 +87,8 @@ git submodule add -f https://github.com/h4r1337/hugo-klise themes/hugo-klise
   - Extended headers and footers
   - Custom css
   - More configuration options via config.toml
-- [ ] Google Analytics
 - [ ] Submit to hugo themes
+- [x] Google Analytics
 - [x] Add FontAwesome supoort
 - [x] Add Shortcodes
 

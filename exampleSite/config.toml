@@ -112,3 +112,7 @@ series = "series"
 
   [services.twitter]
     disableInlineCSS = true
+
+  # Uncomment the below section to enable Google Analytics
+  # [services.googleAnalytics]
+  #   id = 'G-XXXXXXXXX' # Enter your google analytics id here
