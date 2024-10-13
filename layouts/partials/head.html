@@ -78,6 +78,8 @@
   {{- $style := resources.Get "sass/main.scss" | toCSS | minify | fingerprint -}}
   {{- /* Font Awesome */ -}}
   {{- $fw := resources.Get "lib/fontawesome-free/all.min.css" | fingerprint -}}
+  {{- /* Box icons */ -}}
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link
     rel="stylesheet"
     href="{{ $style.RelPermalink }}"

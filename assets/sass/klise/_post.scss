@@ -263,3 +263,45 @@
 .post-updated-at {
   font-family: "Ubuntu mono", "monospace";
 }
+
+.alert-heading-box {
+  display: inline-flex;
+  align-items: center;
+}
+
+.alert-heading {
+  margin-left: 8px;
+  font-weight: 600;
+}
+
+.alert {
+  border-left: 4px solid;
+  padding-left: 12px;
+}
+
+.alert-heading-box i {
+  font-size: 1.4rem;
+}
+
+
+@supports (display: block) {
+  .collapsed:dir(ltr) {
+    --direction: 1;
+  }
+}
+
+.alert.collapsed {
+  i:nth-of-type(2) {
+    transform: rotate(calc(var(--direction)* -1* 90deg));
+  }
+}
+
+.alert {
+  i:nth-of-type(2) {
+    transition: transform 100ms ease-in-out;
+  }
+}
+
+.alert-content {
+  transition: transform 0.3s ease-in-out;
+}
