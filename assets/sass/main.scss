@@ -4,7 +4,7 @@ $mono-family: Consolas, monospace;
 $base-font-size: 18px;
 $medium-font-size: $base-font-size * 0.938;
 $small-font-size: $base-font-size * 0.875;
-$base-line-height: 1.85;
+$base-line-height: 1.778rem;
 
 // Font weight
 // $light-weight: 300; // uncomment if necessary
@@ -64,4 +64,4 @@ $on-widescreen: 1152px;
 
 // Import sass files
 @import "klise/fonts", "klise/base", "klise/layout", "klise/post",
-  "klise/miscellaneous", "klise/syntax", "klise/dark";
+"klise/miscellaneous", "klise/syntax", "klise/dark";

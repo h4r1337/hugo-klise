@@ -9,7 +9,7 @@
 
 .notransition {
   -webkit-transition: none;
-  -moz-transition: none; 
+  -moz-transition: none;
   -ms-transition: none;
   -o-transition: none;
   transition: none;
@@ -46,7 +46,8 @@ body {
   position: relative;
   color: $text-base-color;
   background-color: $white;
-  font: $normal-weight #{$base-font-size}/#{$base-line-height} $sans-family;
+  font: $normal-weight $base-font-size $sans-family;
+  line-height: $base-line-height;
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -webkit-font-feature-settings: "kern" 1;
@@ -71,9 +72,9 @@ ul,
 ol,
 dl,
 figure,
+.highlight,
 %vertical-rhythm {
-  margin-top: $spacing-full - 20;
-  margin-bottom: $spacing-full - 20;
+  margin-bottom: $spacing-full - 15;
 }
 
 // strong | bold
@@ -83,17 +84,17 @@ b {
   color: $black;
 }
 
-:not(pre) > code {
-    width: 100%;
-    max-width: 50rem;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.5;
-    display: inline;
-    border: 0;
-    border-radius: 5px;
-    background-color: $dark-code;
-    padding: 0.01em 0.4em;
+:not(pre)>code {
+  width: 100%;
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+  display: inline;
+  border: 0;
+  border-radius: 5px;
+  background-color: $dark-code;
+  padding: 0.01em 0.4em;
 }
 
 // horizontal rule
@@ -124,11 +125,11 @@ kbd {
 // Image
 img {
   max-width: 100%;
-  vertical-align: middle;
   -webkit-user-drag: none;
   margin: 0 auto;
   text-align: center;
   border-radius: 8px;
+  display: block;
 }
 
 // Figure
@@ -137,7 +138,7 @@ figure {
 }
 
 // Image inside Figure tag
-figure > img {
+figure>img {
   display: block;
   position: relative;
 }
@@ -151,10 +152,12 @@ figcaption {
 // List
 ul {
   list-style: none;
+
   li {
     display: list-item;
     text-align: -webkit-match-parent;
   }
+
   li::before {
     content: "\FE63";
     display: inline-block;
@@ -169,9 +172,11 @@ ul {
 ol {
   list-style: none;
   counter-reset: li;
+
   li {
     position: relative;
     counter-increment: li;
+
     &::before {
       content: counter(li);
       display: inline-block;
@@ -200,8 +205,8 @@ li {
     color: $black;
   }
 
-  > ul,
-  > ol {
+  >ul,
+  >ol {
     margin-bottom: 2px;
     margin-top: 0;
   }
@@ -216,8 +221,9 @@ h5,
 h6 {
   color: $black;
   font-weight: $bold-weight;
-  & + ul,
-  & + ol {
+
+  &+ul,
+  &+ol {
     margin-top: 10px;
   }
 
@@ -227,12 +233,12 @@ h6 {
 }
 
 // Headings with link
-h1 > a,
-h2 > a,
-h3 > a,
-h4 > a,
-h5 > a,
-h6 > a {
+h1>a,
+h2>a,
+h3>a,
+h4>a,
+h5>a,
+h6>a {
   text-decoration: none;
   border: none;
 

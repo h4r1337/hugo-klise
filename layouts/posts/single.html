@@ -4,47 +4,48 @@
     <article itemscope itemtype="https://schema.org/BlogPosting">
       <header class="header">
         {{ if .Params.tags }}
-          <div class="tags">
-            <span itemprop="keywords">
-<!-- https://stackoverflow.com/questions/59565101/hugo-list-tags-with-link-and-comma-separated -->
-              {{ with .Params.tags }}
-                {{ range $i, $e := .}}
-                  {{ if $i }}, {{ end }}
-                  <a href="{{ (urlize (printf "tags/%s/" .)) | absURL }}" class="tag">{{ . | upper}}</a>
-                {{ end }}
-              {{ end }}
-            </span>
-          </div>
+        <div class="tags">
+          <span itemprop="keywords">
+            <!-- https://stackoverflow.com/questions/59565101/hugo-list-tags-with-link-and-comma-separated -->
+            {{ with .Params.tags }}
+            {{ range $i, $e := .}}
+            {{ if $i }}, {{ end }}
+            <a href="{{ (urlize (printf " tags/%s/" .)) | absURL }}" class="tag">{{ . | upper}}</a>
+            {{ end }}
+            {{ end }}
+          </span>
+        </div>
         {{ end }}
         <h1 class="header-title" itemprop="headline">{{ .Title | htmlEscape }}</h1>
         {{ if .Params.date }}
-          <div class="post-meta">
-            <time datetime="{{ .Date }}" itemprop="datePublished">
-              {{ .Date.Format "2006-01-02" }}
-            </time>
-            <span itemprop="author" itemscope itemtype="https://schema.org/Person">
-              <span itemprop="name">{{ .Site.Params.Author.name }}</span>
-            </span>
-            <time hidden datetime="{{ .Lastmod }}" itemprop="dateModified"></time>
-            <span hidden itemprop="publisher" itemtype="Person">{{ .Site.Params.Author.name }}</span>
-            <span hidden itemprop="mainEntityOfPage">{{ .Description }}</span>
-          </div>
+        <div class="post-meta">
+          <time datetime="{{ .Date }}" itemprop="datePublished">
+            {{ .Date.Format "2006-01-02" }}
+          </time>
+          <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+            <span itemprop="name">{{ .Site.Params.Author.name }}</span>
+          </span>
+          <time hidden datetime="{{ .Lastmod }}" itemprop="dateModified"></time>
+          <span hidden itemprop="publisher" itemtype="Person">{{ .Site.Params.Author.name }}</span>
+          <span hidden itemprop="mainEntityOfPage">{{ .Description }}</span>
+        </div>
         {{ end }}
       </header>
 
       <div class="page-content" itemprop="articleBody">
         {{- with .Content -}}
-        {{ . | replaceRE "(<h[1-4] id=\"([^\"]+)\">)(.*)(</h[1-4]+>)" `${1}<a href="#${2}" class="anchor-head" aria-label="Anchor"></a>${3}${4}` | safeHTML }}
-        {{- end -}}
+        {{ . | replaceRE "(<h[1-4] id=\"([^\"]+)\">)(.*)(</h[1-4]+>)" `${1}<a href="#${2}" class="anchor-head"
+            aria-label="Anchor"></a>${3}${4}` | safeHTML }}
+          {{- end -}}
       </div>
     </article>
   </main>
   <!-- @TODO: Add GitInfo support  -->
   {{ if .Lastmod }}
-    <small class="post-updated-at">updated at {{ .Lastmod.Format "2006-01-02" }}</small>
+  <small class="post-updated-at">updated at {{ .Lastmod.Format "2006-01-02" }}</small>
   {{ end }}
   {{ if or .NextInSection .PrevInSection }}
-    {{ partial "navigation.html" . }}
+  {{ partial "navigation.html" . }}
   {{ end }}
-</div>  
+</div>
 {{- end -}}

@@ -1,83 +1,68 @@
 {{ $icons := dict
-  "caution" "bx bx-error-alt"
-  "important" "bx bx-message-error"
-  "note" "bx bx-info-circle"
-  "tip" "bx bx-bulb"
-  "warning" "bx bx-error"
+"caution" "bx bx-error-alt"
+"important" "bx bx-message-error"
+"note" "bx bx-info-circle"
+"tip" "bx bx-bulb"
+"warning" "bx bx-error"
 }}
 
 {{ $style := dict
-  "caution" "#9d0006"
-  "important" "#8f3f71"
-  "note" "#076678"
-  "tip" "#bdbb26"
-  "warning" "#fe8019"
+"caution" "#9d0006"
+"important" "#8f3f71"
+"note" "#076678"
+"tip" "#bdbb26"
+"warning" "#fe8019"
 }}
 {{ $fold := "" }}
 
 {{ if eq .Type "alert" }}
-  {{ if eq .AlertSign "-" }}
-    {{ $fold = "collapsed" }}
-  {{ else if eq .AlertSign "+" }}
-    {{ $fold = "open" }}
-  {{ end}}
-  <div 
-    class="alert alert-{{ .AlertType }} {{ $fold }}"
-    style="border-color: {{ (index $style .AlertType) }};"
-  >
-    <div 
-    class="alert-heading-box"
-    {{ if ne $fold "" }}onclick="toggleAlert(this)"{{ end }}
-    >
-      <i 
-        class="{{ (index $icons .AlertType) }}" 
-        style="color: {{ (index $style .AlertType) }};"
-      ></i>
-      <p 
-        class="alert-heading"
-        style="color: {{ (index $style .AlertType) }}"
-      >
-        {{ with .AlertTitle }}
-          {{ . }}
-        {{ else }}
-          {{ or (i18n .AlertType) (title .AlertType) }}
-        {{ end }}
-      </p>
-      {{ if ne $fold "" }}
-        <i 
-          class='bx bx-chevron-down {{ $fold }}'
-          style="color: {{ (index $style .AlertType) }};"
-        ></i>
+{{ if eq .AlertSign "-" }}
+{{ $fold = "collapsed" }}
+{{ else if eq .AlertSign "+" }}
+{{ $fold = "open" }}
+{{ end}}
+<div class="alert alert-{{ .AlertType }} {{ $fold }}" style="border-color: {{ (index $style .AlertType) }};">
+  <div class="alert-heading-box" {{ if ne $fold "" }}onclick="toggleAlert(this)" {{ end }}>
+    <i class="{{ (index $icons .AlertType) }}" style="color: {{ (index $style .AlertType) }};"></i>
+    <p class="alert-heading" style="color: {{ (index $style .AlertType) }}">
+      {{ with .AlertTitle }}
+      {{ . }}
+      {{ else }}
+      {{ or (i18n .AlertType) (title .AlertType) }}
       {{ end }}
-    </div>
-    <div class="alert-content" {{ if eq $fold "collapsed" }}style="display: none;"{{ end }}>
-      {{ .Text }}
-    </div>
+    </p>
+    {{ if ne $fold "" }}
+    <i class='bx bx-chevron-down {{ $fold }}' style="color: {{ (index $style .AlertType) }};"></i>
+    {{ end }}
   </div>
+  <div class="alert-content" {{ if eq $fold "collapsed" }}style="display: none;" {{ end }}>
+    {{ .Text }}
+  </div>
+</div>
 
 <script>
-function toggleAlert(headerElement) {
-  var alertBox = headerElement.parentElement;
-  var alertContent = alertBox.querySelector('.alert-content');
-  var icon = headerElement.querySelectorAll('i')[1];
+  function toggleAlert(headerElement) {
+    var alertBox = headerElement.parentElement;
+    var alertContent = alertBox.querySelector('.alert-content');
+    var icon = headerElement.querySelectorAll('i')[1];
 
-  alertBox.classList.toggle('open');
-  alertBox.classList.toggle('collapsed');
+    alertBox.classList.toggle('open');
+    alertBox.classList.toggle('collapsed');
 
-  if (alertBox.classList.contains('open')) {
-    alertContent.style.display = 'block';
-    icon.classList.remove('open');
-    icon.classList.add('collapsed');
-  } else {
-    icon.classList.remove('collapsed');
-    icon.classList.add('open');
-    alertContent.style.display = 'none';
+    if (alertBox.classList.contains('open')) {
+      alertContent.style.display = 'block';
+      icon.classList.remove('open');
+      icon.classList.add('collapsed');
+    } else {
+      icon.classList.remove('collapsed');
+      icon.classList.add('open');
+      alertContent.style.display = 'none';
+    }
   }
-}
 </script>
 
 {{ else }}
-  <blockquote>
-    {{ .Text }}
-  </blockquote>
+<blockquote>
+  {{ .Text }}
+</blockquote>
 {{ end }}

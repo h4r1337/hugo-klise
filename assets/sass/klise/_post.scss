@@ -4,6 +4,7 @@
     padding-left: $spacing-half;
     padding-right: $spacing-half;
   }
+
   background: $black;
 }
 
@@ -82,6 +83,7 @@
   figure {
     img {
       border-radius: 2px;
+      display: block;
     }
 
     figcaption {
@@ -94,6 +96,7 @@
   a {
     color: $text-link-blue;
     text-decoration: none;
+
     &[target="_blank"]::after {
       content: " \2197";
       font-size: $small-font-size;
@@ -112,14 +115,8 @@
     }
   }
 
-  > p {
-    margin: 0;
-    padding-top: $spacing-full - 15;
-    padding-bottom: $spacing-full - 15;
-  }
-
   ul.task-list {
-    list-style: none; 
+    list-style: none;
     margin: 0;
 
     li::before {
@@ -143,8 +140,6 @@
   h6 {
     color: $black;
     font-weight: $bold-weight;
-    margin-top: $spacing-full;
-    margin-bottom: 0;
 
     &:hover {
       .anchor-head {
@@ -272,11 +267,13 @@
 .alert-heading {
   margin-left: 8px;
   font-weight: 600;
+  margin-bottom: 0px;
 }
 
 .alert {
   border-left: 4px solid;
   padding-left: 12px;
+  margin-bottom: $spacing-full;
 }
 
 .alert-heading-box i {
