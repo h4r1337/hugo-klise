@@ -30,21 +30,28 @@ pre {
 
   border: 1px solid rgba(128, 128, 128, 0.1);
   background-color: $dark-code;
-  border-radius: 5px;
+  border-radius: 4px;
   padding: 10px;
   display: block;
   overflow-x: auto;
-
-}
-
-pre code {
   width: 100%;
   max-width: 50rem;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 1em 0px;
   line-height: 1.5;
-  display: block;
-  border: 0;
+  font-size: .9rem;
+  white-space: pre;
+}
+
+pre,
+code {
+  font-family: $mono-family;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "calt" 1;
+  font-variant-ligatures: normal;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
 }
 
 .highlight table td {

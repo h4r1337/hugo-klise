@@ -1,6 +1,7 @@
 // Fonts preferences
 $sans-family: Roboto, sans-serif;
 $mono-family: Consolas, monospace;
+$default-font-family: inter, -apple-system, BlinkMacSystemFont, roboto, segoe ui, Helvetica, Arial, sans-serif;
 $base-font-size: 18px;
 $medium-font-size: $base-font-size * 0.938;
 $small-font-size: $base-font-size * 0.875;
@@ -24,19 +25,19 @@ $gray: #6b7886;
 $white: #fff;
 
 // Dark Colors
-$dark-text-base-color: #c7bebe;
+$dark-text-base-color: #ececec;
 $dark-text-link-blue: #ff5277;
 $dark-text-link-blue-active: #ff2957;
 $dark-text-link-orange: #ffd866;
 $dark-text-link-orange-active: #ff6188;
 $dark-text-green: #aed581;
 
-$dark-black: #1b1b1b;
+$dark-black: #121212;
 $dark-white: #eaeaea;
 $dark-light: #343434;
 $dark-smoke: #535455;
 $dark-gray: #767f87;
-$dark-code: #282828;
+$dark-code: #212020;
 
 // Width of the content area
 $wide-size: 890px;

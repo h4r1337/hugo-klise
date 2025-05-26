@@ -12,7 +12,7 @@ This is a hugo theme inspired by the original jekyll theme -- [Klisé](https://g
 ## Features
 
 - Light & Dark Mode support :waxing_crescent_moon:
-- Customiable (using `.scss`)
+- Customizable (using `.scss`)
 - Responsive (desktop, tab and mobile)
 - Mobile First Design
 - SEO Optimized
