@@ -21,7 +21,8 @@
 {{ else if eq .AlertSign "+" }}
 {{ $fold = "open" }}
 {{ end}}
-<div class="alert alert-{{ .AlertType }} {{ $fold }}" style="border-color: {{ (index $style .AlertType) }};">
+<div class="alert alert-{{ .AlertType }} {{ $fold }}"
+  style="border-color: {{ (index $style .AlertType) }}; background: {{ (index $style .AlertType) }}1a">
   <div class="alert-heading-box" {{ if ne $fold "" }}onclick="toggleAlert(this)" {{ end }}>
     <i class="{{ (index $icons .AlertType) }}" style="color: {{ (index $style .AlertType) }};"></i>
     <p class="alert-heading" style="color: {{ (index $style .AlertType) }}">

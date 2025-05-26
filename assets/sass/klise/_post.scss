@@ -270,13 +270,21 @@
 }
 
 .alert {
-  border-left: 4px solid;
-  padding-left: 12px;
-  margin-bottom: $spacing-full;
+  border-left: .4em solid;
+  padding: .5em .9em;
+  margin: 1em 0;
 }
 
 .alert-heading-box i {
   font-size: 1.4rem;
+}
+
+.alert {
+
+  i,
+  .alert-heading {
+    filter: saturate(1.2) brightness(1.5);
+  }
 }
 
 
