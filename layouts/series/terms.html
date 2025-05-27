@@ -1,0 +1,23 @@
+{{- define "main" -}}
+<div class="wrapper">
+  <header class="header">
+    <h1 class="header-title center" itemprop="headline">{{ .Title | htmlEscape}}</h1>
+  </header>
+  <main class="page-content" aria-label="Content">
+    <div class="archive-series">
+      {{ $type := .Type }}
+      {{ $taxonomies := .Data.Plural }}
+      {{ if eq $taxonomies "series" }}
+      {{ range $.Site.Taxonomies.series.ByCount }}
+      <ul class="series-list">
+        <li class="series-item">
+          <a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> <span class="series-count"><code>{{ .Count
+              }}</code></span>
+        </li>
+      </ul>
+      {{ end }}
+      {{ end }}
+    </div>
+  </main>
+</div>
+{{- end -}}
