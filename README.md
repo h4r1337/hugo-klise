@@ -81,13 +81,13 @@ git submodule add -f https://github.com/h4r1337/hugo-klise themes/hugo-klise
 ### Major
 
 - [ ] Add posts search feature
-- [ ] Table of Content
 - [ ] Comments
 - [ ] User customization options
   - Extended headers and footers
   - Custom css
   - More configuration options via config.toml
 - [ ] Submit to hugo themes
+- [x] Table of Content
 - [x] Google Analytics
 - [x] Add FontAwesome supoort
 - [x] Add Shortcodes

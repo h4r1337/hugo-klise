@@ -1,0 +1,12 @@
+{{ $toc := .TableOfContents | safeHTML }}
+{{ if $toc }}
+<div class="sticky-top col">
+  <div class="toc-title">
+    <p>{{ .Title }}</p>
+    <hr id="toc-hr">
+  </div>
+  <nav id="toc" class="toc-container">
+    {{ $toc }}
+  </nav>
+</div>
+{{ end }}
