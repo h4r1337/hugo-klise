@@ -192,11 +192,13 @@ $gap: 1rem;
 }
 
 // Table of Contents
-.sticky-top {
-  position: fixed;
-  top: 82px;
+#sticky-top {
+  position: absolute;
+  top: 9.5rem;
+  /* position: fixed; */
   /* left: calc((100vw - #{$wide-size} / 2 - 1rem)); */
-  left: calc((100vw - #{$wide-size}) / 2 + #{$wide-size} + 1rem);
+  left: 50%;
+  transform: translateX(calc(#{$wide-size} / 2 + 1rem));
   z-index: 1000;
   float: right;
   max-height: calc(100vh - 160px);
@@ -206,6 +208,14 @@ $gap: 1rem;
   border-radius: 4px;
   width: 18rem;
   word-wrap: break-word;
+
+  &.fixed {
+    position: fixed;
+    /* @NOTE: 
+     *  if any plan to change the top value, also update the offset in toc.js 
+    */
+    top: 2rem;
+  }
 
   @include media-query(1642px) {
     display: none;

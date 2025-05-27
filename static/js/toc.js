@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const toc = document.getElementById("TableOfContents");
   if (!toc) return;
 
-  // grab all headings (h1–h6) with anchors that match your TOC links
   const links = Array.from(toc.querySelectorAll("a[href^='#']"));
   const targets = links
     .map(link => {
@@ -14,11 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let lastActiveId = null;
 
   function updateToc(activeId) {
-    // clear old
     toc.querySelectorAll("a.active").forEach(a => a.classList.remove("active"));
     toc.querySelectorAll("li.expanded").forEach(li => li.classList.remove("expanded"));
 
-    // mark new
     const link = toc.querySelector(`a[href="#${CSS.escape(activeId)}"]`);
     if (!link) return;
 
@@ -52,19 +49,39 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  const stickyToc = document.getElementById("sticky-top");
+  const tocRect = stickyToc.getBoundingClientRect();
+  const tocTop = tocRect.top + window.scrollY;
+  const cssTop = parseFloat(getComputedStyle(toc).top) || 0;
+  const fixThreshold = tocTop - cssTop;
+
+  const rootFontSize = parseFloat(
+    getComputedStyle(document.documentElement).fontSize
+  );
+  const offset = rootFontSize * 2;
+  function updateFixed() {
+    if (window.scrollY > fixThreshold - offset) {
+      stickyToc.classList.add("fixed");
+      console.log("updated")
+    } else {
+      stickyToc.classList.remove("fixed");
+    }
+  }
+
   // throttle via requestAnimationFrame
   let ticking = false;
   window.addEventListener("scroll", () => {
     if (!ticking) {
       window.requestAnimationFrame(() => {
         onScroll();
+        updateFixed()
         ticking = false;
       });
       ticking = true;
     }
   });
 
-  // init on load in case you’re already scrolled
   onScroll();
+  updateFixed();
 });
 

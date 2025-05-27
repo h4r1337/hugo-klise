@@ -1,6 +1,6 @@
 {{ $toc := .TableOfContents | safeHTML }}
 {{ if $toc }}
-<div class="sticky-top col">
+<aside id="sticky-top">
   <div class="toc-title">
     <p>{{ .Title }}</p>
     <hr id="toc-hr">
@@ -8,5 +8,5 @@
   <nav id="toc" class="toc-container">
     {{ $toc }}
   </nav>
-</div>
+</aside>
 {{ end }}
