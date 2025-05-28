@@ -321,7 +321,7 @@ $gap: 1rem;
 // List of posts
 .post-item {
   display: flex;
-  padding-top: 2rem;
+  padding-top: 5px;
   padding-bottom: 6px;
   @extend %clearfix;
 
@@ -330,7 +330,7 @@ $gap: 1rem;
   }
 
   .post-item-date {
-    min-width: 96px;
+    min-width: 120px;
     color: $black;
     font-weight: 700;
     padding-right: 10px;
