@@ -13,6 +13,12 @@ $gap: 1rem;
   @extend %clearfix;
 }
 
+.pagination {
+  display: flex;
+  justify-content: space-around;
+  gap: 5px;
+}
+
 // Navigation
 .menu {
   user-select: none;
@@ -451,6 +457,7 @@ $gap: 1rem;
     padding: 10px 10px 10px 35px;
     color: $text-base-color;
     -webkit-appearance: none;
+    appearance: none;
     font-size: $base-font-size;
     background-color: rgba(128, 128, 128, 0.1);
     border: 1px solid rgba(128, 128, 128, 0.1);

@@ -1,0 +1,79 @@
+{{- define "main" -}}
+<div class="wrapper">
+  <header class="header">
+    <h1 class="header-title center" itemprop="headline">{{ .Title | htmlEscape }}</h1>
+  </header>
+  <main class="page-content" aria-label="Content">
+    <div class="search-article">
+      <label for="search-input" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="rgba(128,128,128,0.8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="feather feather-search">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </label>
+      <input type="search" id="search-input" placeholder="Search Posts" aria-label="Search">
+    </div>
+
+    <ul id="search-results"></ul>
+
+    {{ if .Pages }}
+
+    {{ $global := default 0 .Site.Params.paginate }}
+    {{ $section := default $global .Params.paginate }}
+    {{ $perPage := $section }}
+
+    {{ $paginator := . }}
+
+    {{ if gt $perPage 0 }}
+      {{ $paginator = .Paginate (.Pages.ByDate.Reverse) $perPage }}
+    {{ end }}
+
+    {{ $groups := $paginator.Pages.GroupByDate "2006" }}
+
+    {{ range $groups }}
+    <h2 id="{{ .Key }}">{{ .Key | upper }}</h2>
+    {{ range .Pages }}
+    <article class="post-item">
+      <h3 class="post-item-title" style="font-weight: 600;">
+        <a href="{{ .Permalink }}">{{ .Title | htmlEscape}}</a>
+      </h3>
+    </article>
+      {{ $summary := $.Site.Params.showSummary }}
+      {{ if ne $summary "none" }}
+      <div class="post-summary">
+        <span class="summary" style="color: #b3bbc1;">
+          {{ if eq $summary "description" }}
+          {{ .Description | markdownify }}
+          {{ else }}
+          {{ .Summary | markdownify }}
+          {{ end }}
+        </span>
+        <a href="{{ .Permalink }}">Read More...</a>
+      </div>
+      {{ end }}
+    {{ end }}
+    {{ end }}
+
+    {{ if and (gt $perPage 0) (gt $paginator.TotalPages 1) }}
+    {{ partial "navigation.html" . }}
+    <nav class="pagination">
+      {{ if $paginator.HasPrev }}
+      <a href="{{ $paginator.Prev.URL }}">← Newer</a>
+      {{ end }}
+      {{ range $paginator.Pagers }}
+      <a href="{{ .URL }}" class="{{ if eq . $paginator }}current{{ end }}">
+        {{ .PageNumber }}
+      </a>
+      {{ end }}
+      {{ if $paginator.HasNext }}
+      <a href="{{ $paginator.Next.URL }}">Older →</a>
+      {{ end }}
+    </nav>
+    {{ end }}
+    {{ end }}
+
+  </main>
+</div>
+{{- end -}}
