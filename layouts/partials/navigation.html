@@ -1,3 +1,49 @@
+{{ if .Params.series }}
+{{ with (.GetTerms "series") }}
+  {{ range . }}
+    <hr>
+    <div class="series-nav">
+      <div class="alert alert-note">
+        <div class="alert-heading-box">
+          <a href="{{ .Permalink }}">
+            <p class="alert-heading">{{ .Title }} Series</p>
+          </a>
+        </div>
+      </div>
+
+      {{ $curPageIndex := 0 }}
+      {{ range $idx, $page := .Pages.ByDate }}
+        {{ if eq $page $ }}
+          {{ $curPageIndex = $idx }}
+        {{ end }}
+      {{ end }}
+
+      {{ $prevPageIndex := sub $curPageIndex 1 }}
+      {{ $nextPageIndex := add $curPageIndex 1 }}
+        <nav class="post-nav" style="margin-top: 1rem;border-top: none">
+          {{ with (index .Pages.ByDate $prevPageIndex) }}
+            <a
+              class="post-nav-item post-nav-prev"
+              href="{{ .Permalink }}"
+            >
+              <div class="nav-arrow">Previous in series</div>
+              <span class="post-title">{{ .Title }}</span>
+            </a>
+          {{ end }}
+          {{ with (index .Pages.ByDate $nextPageIndex) }}
+            <a
+              class="post-nav-item post-nav-next"
+              href="{{ .Permalink }}"
+            >
+              <div class="nav-arrow">Next in series</div>
+              <span class="post-title">{{ .Title }}</span>
+            </a>
+          {{ end }}
+        </nav>
+    </div>
+  {{ end }}
+{{ end }}
+{{ end }}
 <nav class="post-nav">
   {{ if .PrevInSection }}
     <a

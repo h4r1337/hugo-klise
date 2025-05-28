@@ -189,6 +189,29 @@
   }
 }
 
+.series-nav {
+  background: #212020;
+  padding: 1.5rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, .5);
+  border-radius: 4px;
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      outline: none;
+    }
+  }
+
+  .alert {
+    transition: .3s ease-in-out;
+
+    &:hover {
+      box-shadow: 0 3px 10px rgba(0, 0, 0, .5);
+    }
+  }
+}
+
 .post-nav {
   display: flex;
   position: relative;
