@@ -270,17 +270,14 @@
   cursor: pointer;
 }
 
-.alert {
-  border-left: .4em solid;
-  padding: .5em .9em;
-  margin: 1em 0;
-}
-
 .alert-heading-box i {
   font-size: 1.4rem;
 }
 
 .alert {
+  border-left: .4em solid;
+  padding: .5em .9em;
+  margin: 1em 0;
 
   i,
   .alert-heading {
@@ -309,4 +306,55 @@
 
 .alert-content {
   transition: transform 0.3s ease-in-out;
+}
+
+.alert-caution {
+  border-color: $caution;
+  background: rgba($caution, 0.102);
+
+  i,
+  .alert-heading {
+    color: $caution;
+  }
+
+}
+
+.alert-important {
+  border-color: $important;
+  background: rgba($important, 0.102);
+
+  i,
+  .alert-heading {
+    color: $important;
+  }
+}
+
+.alert-note {
+  border-color: $note;
+  background: rgba($note, 0.102);
+
+  i,
+  .alert-heading {
+    color: $note;
+  }
+}
+
+.alert-tip {
+  border-color: $tip;
+  background: rgba($tip, 0.102);
+
+  i,
+  .alert-heading {
+    color: $tip;
+  }
+}
+
+.alert-warning {
+  border-color: $warning;
+  background: rgba($warning, 0.102);
+
+  i,
+  .alert-heading {
+    color: $warning;
+  }
 }

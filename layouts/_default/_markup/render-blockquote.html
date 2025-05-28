@@ -6,13 +6,6 @@
 "warning" "bx bx-error"
 }}
 
-{{ $style := dict
-"caution" "#9d0006"
-"important" "#8f3f71"
-"note" "#076678"
-"tip" "#bdbb26"
-"warning" "#fe8019"
-}}
 {{ $fold := "" }}
 
 {{ if eq .Type "alert" }}
@@ -21,11 +14,10 @@
 {{ else if eq .AlertSign "+" }}
 {{ $fold = "open" }}
 {{ end}}
-<div class="alert alert-{{ .AlertType }} {{ $fold }}"
-  style="border-color: {{ (index $style .AlertType) }}; background: {{ (index $style .AlertType) }}1a">
+<div class="alert alert-{{ .AlertType }} {{ $fold }}">
   <div class="alert-heading-box" {{ if ne $fold "" }}onclick="toggleAlert(this)" {{ end }}>
-    <i class="{{ (index $icons .AlertType) }}" style="color: {{ (index $style .AlertType) }};"></i>
-    <p class="alert-heading" style="color: {{ (index $style .AlertType) }}">
+    <i class="{{ (index $icons .AlertType) }}"></i>
+    <p class="alert-heading">
       {{ with .AlertTitle }}
       {{ . }}
       {{ else }}
@@ -33,7 +25,7 @@
       {{ end }}
     </p>
     {{ if ne $fold "" }}
-    <i class='bx bx-chevron-down {{ $fold }}' style="color: {{ (index $style .AlertType) }};"></i>
+    <i class='bx bx-chevron-down {{ $fold }}'></i>
     {{ end }}
   </div>
   <div class="alert-content" {{ if eq $fold "collapsed" }}style="display: none;" {{ end }}>
