@@ -1,23 +1,14 @@
-<!-- {{- define "main" -}} -->
-<!-- <div class="wrapper"> -->
-<!--   {{ partial "toc.html" }} -->
-<!--   <header class="header"> -->
-<!--     <h1 class="header-title center" itemprop="headline">{{ .Title | htmlEscape }}</h1> -->
-<!--   </header> -->
-<!--   <main class="page-content" aria-label="Content"> -->
-<!--     {{- with .Content -}} -->
-<!--     {{ . | replaceRE "(<h[1-4] id=\"([^\"]+)\">)(.*)(</h[1-4]+>)" `${1}<a href="#${2}" class="anchor-head" -->
-<!--         aria-label="Anchor"></a>${3}${4}` | safeHTML }} -->
-<!--       {{- end -}} -->
-<!--   </main> -->
-<!-- </div> -->
-<!-- {{- end -}} -->
-{{- if .Params.series -}}
-{{- with index (.GetTerms "series") 0 -}}
-<div class="alert alert-note">
-  <div class="alert-content">
-    <p>This post is part of the <a href="{{ .Permalink }}" style="font-weight: bold">{{ .LinkTitle }}</a> series.</p>
-  </div>
+{{- define "main" -}}
+<div class="wrapper">
+  {{ partial "toc.html" }}
+  <header class="header">
+    <h1 class="header-title center" itemprop="headline">{{ .Title | htmlEscape }}</h1>
+  </header>
+  <main class="page-content" aria-label="Content">
+    {{- with .Content -}}
+    {{ . | replaceRE "(<h[1-4] id=\"([^\"]+)\">)(.*)(</h[1-4]+>)" `${1}<a href="#${2}" class="anchor-head"
+        aria-label="Anchor"></a>${3}${4}` | safeHTML }}
+      {{- end -}}
+  </main>
 </div>
-{{- end -}}
 {{- end -}}
