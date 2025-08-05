@@ -14,12 +14,17 @@ This is a hugo theme inspired by the original jekyll theme -- [Klisé](https://g
 - Light & Dark Mode support :waxing_crescent_moon:
 - Customizable (using `.scss`)
 - Responsive (desktop, tab and mobile)
-- Mobile First Design
 - SEO Optimized
 - Pagination
 - [Custom shortcodes](#custom-shortcodes)
 - FontAwesome icon support
 - Google Analytics
+- Custom [Alerts](https://gohugo.io/render-hooks/blockquotes/#alerts)
+- Vim keybindings
+    - j  -> scroll down
+    - k  -> scroll up
+    - gg -> go to top
+    - G  -> go to end
 
 ### Built-in shortcodes
 
@@ -36,6 +41,33 @@ This is a hugo theme inspired by the original jekyll theme -- [Klisé](https://g
   ```markdown
   {{< image src="/path/image.png" alt="image" >}}
   ```
+
+### Alerts
+
+Syntax:
+
+```md
+> [!note] Title
+> This is a note
+```
+
+**Available alerts:**
+
+- note
+- tip
+- important
+- warning
+- caution
+
+**Extended sytax:**
+With the extended Markdown syntax, you may optionally include an alert sign and/or an alert title. The alert sign is one of + or -, typically used to indicate whether an alert is graphically foldable. For example:
+
+```md
+> [!warning]- Radiation hazard
+> Do not approach or handle without protective gear.
+The extended syntax is compatible with Obsidian.
+```
+
 
 ### Code highlighting
 
