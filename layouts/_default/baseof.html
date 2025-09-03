@@ -1,29 +1,34 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode | default "en-US" }}">
-    {{- partial "head.html" . -}}
-    <body data-theme="{{ .Site.Params.mode | default "dark"}}" class="notransition">
+<html lang="{{ .Site.LanguageCode | default " en-US" }}">
+{{- partial "head.html" . -}}
 
-      <script>
-        const body = document.body;
-        const data = body.getAttribute("data-theme");
+<body data-theme="{{ .Site.Params.mode | default " dark"}}" class="notransition">
 
-        const initTheme = (state) => {
-          if (state === "dark") {
-            body.setAttribute("data-theme", "dark");
-          } else if (state === "light") {
-            body.removeAttribute("data-theme");
-          } else {
-            localStorage.setItem("theme", data);
-          }
-        };
+  <script>
+    const body = document.body;
+    const data = body.getAttribute("data-theme");
 
-        initTheme(localStorage.getItem("theme"));
+    const initTheme = (state) => {
+      if (state === "dark") {
+        body.setAttribute("data-theme", "dark");
+      } else if (state === "light") {
+        body.removeAttribute("data-theme");
+      } else {
+        localStorage.setItem("theme", data);
+      }
+    };
 
-        setTimeout(() => body.classList.remove("notransition"), 75);
-      </script>
+    initTheme(localStorage.getItem("theme"));
 
-      {{- partial "navbar.html" . -}}
-      {{- block "main" . }}{{ end -}}
-      {{- partial "footer.html" . -}}
-    </body>
+    setTimeout(() => body.classList.remove("notransition"), 75);
+  </script>
+
+  {{- if .Site.Params.goatcounter }}
+  {{ partial "analytics.html" . -}}
+  {{- end }}
+  {{- partial "navbar.html" . -}}
+  {{- block "main" . }}{{ end -}}
+  {{- partial "footer.html" . -}}
+</body>
+
 </html>

@@ -98,6 +98,15 @@ The extended syntax is compatible with Obsidian.
     id = 'G-XXXXXXXXX' # Add your google analytics id here
 ```
 
+### Goatcounter Analytics
+
+- To enable Goatcounter analytics to your website add the below snippet to your `config.toml` file:
+
+```toml
+[params]
+    goatcounter = 'xxxxxx' # Add your Goatcounter analytics id here
+```
+
 ## Installation
 
 - Install theme
@@ -121,6 +130,7 @@ git submodule add -f https://github.com/h4r1337/hugo-klise themes/hugo-klise
 - [ ] Submit to hugo themes
 - [x] Table of Content
 - [x] Google Analytics
+- [x] Goatcounter Analytics
 - [x] Add FontAwesome supoort
 - [x] Add Shortcodes
 
