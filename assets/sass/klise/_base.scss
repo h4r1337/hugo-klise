@@ -107,6 +107,40 @@ b {
   unicode-bidi: isolate;
 }
 
+/* Horizontal scrollbar only */
+pre {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* WebKit */
+pre::-webkit-scrollbar:vertical {
+  display: none;
+}
+
+pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+pre::-webkit-scrollbar-track {
+  background: #282828;
+}
+
+pre::-webkit-scrollbar-thumb {
+  background: #5a524c;
+  border-radius: 999px;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+  background: #6b625b;
+}
+
+/* Firefox */
+pre {
+  scrollbar-width: thin;
+  scrollbar-color: #5a524c #282828;
+}
+
 // horizontal rule
 hr {
   border-bottom: 0;
